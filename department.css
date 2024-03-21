@@ -1,0 +1,100 @@
+
+body{background: #f0f1f6;margin: 0;padding: 0;}
+.block{margin-left: 40px;margin-top: -300px;}
+ .dep{padding-top: 200px;}
+
+.dep_t{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  color: #102749;
+  display: flex;
+  text-align: start;
+  margin-bottom: 8vh;
+  padding-top: 100px;
+
+}
+.dep_t::before
+{
+  content: "";
+  position: relative;
+  display: inline-block;
+  height: 80px;
+  width: 6px;
+  right: 20px;
+  top:70px;
+  background-color: rgb(42, 165, 232);
+
+
+}
+
+
+
+
+.r{
+  margin-left: 50px;
+  margin-top: 40px;
+  border-radius:35px;
+  box-shadow: 10px 10px 5px rgb(177, 185, 187);
+  width: 400px;height: 265px;
+}
+.a{width: 400px; 
+  margin-left: 50px;
+  margin-top: 40px;
+   border-radius:35px;
+  box-shadow: 10px 10px 5px rgb(177, 185, 187);height: 265px;}
+
+
+
+.contner {
+  position: relative;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  margin-left: -40px;}
+
+ .overlay {
+ display: none;
+position: absolute;
+bottom: 0;
+  left: 50px;
+  right: 0;
+  background-color: rgba(6, 44, 87, 0.5);
+  overflow: hidden;
+ transition: 0.5s ease;
+ border-radius: 35px;
+ display: block;
+width:400px ;
+height: 269px;  /* ارتفاع الفقرة */
+  }
+
+ .tex {
+color: white;
+font-size:35px;
+position: absolute;
+ top: 50%;
+  left: 50%;
+transform: translate(-50%, -50%);
+text-align: center;
+  }
+
+  .contain  {  position: relative;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    margin-left: 400px;
+    margin-top: -509px;
+  }
+    
+    .containe{  position: relative;
+      display: flex;
+      height: 100%;
+      align-items: center;
+      margin-left: 840px;
+      margin-top: -509px;
+    }
+
+
+ 
+ 
+
