@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <title>Course</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+        * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+        }
+        body {
+           background: #f0f1f6;
+           font-family: 'Poppins', sans-serif;
+        }
+        nav {
+           z-index: 100;
+           position: fixed;
+           height: 80px;
+           width: 100%;
+           background: #102749;
+           display: flex;
+           align-items: center;
+           justify-content: space-between;
+           padding: 0 80px;
+           flex-wrap: wrap;
+        }
+        nav ul {
+           list-style: none;
+           display: flex;
+           flex-wrap: wrap;
+        }
+        nav ul li {
+           margin: 0 10px;
+        }
+        nav ul li a {
+           color: #f2f2f2;
+           text-decoration: none;
+           font-size: 18px;
+           font-weight: 500;
+           padding: 8px 15px;
+           border-radius: 5px;
+           letter-spacing: 1px;
+           transition: all 0.3s ease;
+        }
+        nav ul li a.active,
+        nav ul li a:hover {
+           color: #111;
+           background: #fff;
+        }
+        nav .menu-btn i {
+           color: #fff;
+           font-size: 22px;
+           cursor: pointer;
+           display: none;
+        }
+        input[type="checkbox"] {
+           display: none;
+        }
+        @media (max-width: 920px) {
+           nav .menu-btn i {
+              display: block;
+           }
+           #click:checked ~ .menu-btn i:before {
+              content: "\f00d";
+           }
+           nav ul {
+              position: fixed;
+              top: 80px;
+              left: -100%;
+              background: #102749;
+              height: 100vh;
+              width: 100%;
+              text-align: center;
+              display: block;
+              transition: all 0.3s ease;
+           }
+           #click:checked ~ ul {
+              left: 0;
+           }
+           nav ul li {
+              width: 100%;
+              margin: 20px 0;
+           }
+           nav ul li a {
+              width: 100%;
+              margin-left: -100%;
+              display: block;
+              font-size: 18px;
+              transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+           }
+           #click:checked ~ ul li a {
+              margin-left: 0;
+           }
+           nav ul li a.active,
+           nav ul li a:hover {
+              background: none;
+              color: #7f858f;
+           }
+        }
+
+        .container {
+            display: flex;
+            height: 100%;
+        }
+
+        .main-content {
+            margin-top: 10%;
+            margin-left: 15%;
+            margin-right: 15%;
+            margin-bottom: 5%;
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            width: 70%;
+        }
+
+        .announcement {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .announcement textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+
+        .announcement button {
+            color: #fff;
+            background-color: #102749;;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .posts .post {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .posts .post p {
+            margin: 5px 0;
+        }
+
+        .comment {
+            background-color: #fff;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .comment input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .comment button {
+            padding: 10px;
+            margin-top: 5px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .comment button.delete {
+            background-color: #dc3545;
+        }
+
+        .edit,
+        .delete {
+            padding: 5px 10px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .edit {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .delete {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            .main-content {
+                margin-top: 100px;
+                margin-left: 5%;
+                margin-right: 5%;
+                width: 90%;
+            }
+
+            .posts .post {
+                padding: 10px;
+                margin-bottom: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+           <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+           <li><a href="#" class="active">Course</a></li>
+           <li><a href="#">Assignments</a></li>
+           <li><a href="#">Quizzes</a></li>
+           <li><a href="#">Grades</a></li>
+           <li><a href="#">Contact Staff</a></li>
+           <li><a href="#">Logout</a></li>
+        </ul>
+     </nav>
+</header>
+
+<div class="container">
+
+    <div class="main-content">
+        <div class="announcement">
+            <h2>Post</h2>
+            <textarea id="announcement-input" placeholder="Add Post here ......"></textarea>
+            <button onclick="addAnnouncement()">Post</button>
+        </div>
+        <div id="posts" class="posts">
+            <!-- Posts will be dynamically added here -->
+        </div>
+    </div>
+</div>
+
+<script>
+function addAnnouncement() {
+    const announcementInput = document.getElementById('announcement-input');
+    const announcementText = announcementInput.value.trim();
+
+    if (announcementText) {
+        const postsContainer = document.getElementById('posts');
+        const postElement = document.createElement('div');
+        postElement.classList.add('post');
+
+        postElement.innerHTML = `
+            <p>${announcementText}</p>
+            <button class="edit" onclick="editPost(this)">Edit</button>
+            <button class="delete" onclick="deletePost(this)">Delete</button>
+            <div class="comment">
+                <input type="text" placeholder="Add Comment here .......">
+                <button onclick="addComment(this)">تعليق</button>
+            </div>
+            <div class="comments"></div>
+        `;
+
+        postsContainer.appendChild(postElement);
+        announcementInput.value = '';
+    }
+}
+
+function editPost(button) {
+    const postElement = button.parentElement;
+    const postTextElement = postElement.querySelector('p');
+    const newText = prompt('Edit Post :', postTextElement.textContent);
+
+    if (newText !== null) {
+        postTextElement.textContent = newText.trim();
+    }
+}
+
+function deletePost(button) {
+    const postElement = button.parentElement;
+    postElement.remove();
+}
+
+function addComment(button) {
+    const commentInput = button.previousElementSibling;
+    const commentText = commentInput.value.trim();
+
+    if (commentText) {
+        const commentsContainer = button.parentElement.nextElementSibling;
+        const commentElement = document.createElement('div');
+        commentElement.classList.add('comment');
+
+        commentElement.innerHTML = `
+            <p>${commentText}</p>
+            <button class="edit" onclick="editComment(this)">تعديل</button>
+            <button class="delete" onclick="deleteComment(this)">حذف</button>
+        `;
+
+        commentsContainer.appendChild(commentElement);
+        commentInput.value = '';
+    }
+}
+
+function editComment(button) {
+    const commentElement = button.parentElement;
+    const commentTextElement = commentElement.querySelector('p');
+    const newText = prompt('Edit Comment:', commentTextElement.textContent);
+
+    if (newText !== null) {
+        commentTextElement.textContent = newText.trim();
+    }
+}
+
+function deleteComment(button) {
+    const commentElement = button.parentElement;
+    commentElement.remove();
+}
+</script>
+</body>
+</html>
