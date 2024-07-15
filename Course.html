@@ -60,6 +60,10 @@
         input[type="checkbox"] {
            display: none;
         }
+        h2{color:  #102749;}
+
+
+
         @media (max-width: 1020px) {
            nav .menu-btn i {
               display: block;
@@ -123,6 +127,8 @@
             padding: 20px;
             margin-bottom: 20px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            font-size: 18px;
+            font-weight: 500;
         }
 
         .announcement textarea {
@@ -133,35 +139,94 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             resize: none;
+            font-size: 18px;
+            font-weight: 500;
         }
 
-        .announcement button {
+        button {
+            background-color: #102749;
             color: #fff;
-            background-color: #102749;;
             text-decoration: none;
             font-size: 18px;
             font-weight: 500;
             padding: 8px 15px;
             border-radius: 5px;
             cursor: pointer;
+            border: none;
+            margin: 10px 0px;
         }
 
         .posts .post {
             background-color: #fff;
             padding: 15px;
-            margin-bottom: 10px;
+            margin: 30px 0px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             position: relative;
         }
 
-        .posts .post p {
+        p {
             margin: 5px 0;
+            margin-right: 150px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .post-controls {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            display: flex;
+            gap: 5px;
         }
 
         .comment {
             background-color: #fff;
             padding: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid black;
+        }
+
+        .comment2 {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-bottom: 25px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 200px;
+        }
+        .comment2 p {
+            flex-grow: 1;
+        }
+        .profile-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .profile-container img {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .file-download {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .file-download img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
         }
 
         .comment input {
@@ -169,43 +234,19 @@
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
-        }
-
-        .comment button {
-            padding: 10px;
-            margin-top: 5px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .comment button.delete {
-            background-color: #dc3545;
-        }
-
-        .edit,
-        .delete {
-            padding: 5px 10px;
-            margin-top: 5px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
+            font-size: 18px;
+            font-weight: 500;
         }
 
         .edit {
             background-color: #007bff;
-            color: white;
         }
 
         .delete {
             background-color: #dc3545;
-            color: white;
         }
 
-        @media (max-width: 800px) {
+        @media (max-width: 850px) {
             .main-content {
                 margin-top: 100px;
                 margin-left: 5%;
@@ -216,6 +257,30 @@
             .posts .post {
                 padding: 10px;
                 margin-bottom: 8px;
+            }
+            .comment2 {
+                padding: 15px;
+                min-height: 280px;
+            }
+            .file-download {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .file-download img {
+                margin-bottom: 5px;
+            }
+        }
+
+        @media (min-width: 855px) and (max-width: 1032px) {
+            .comment2 {
+                padding: 25px;
+                min-height: 250px;
+            }
+        }
+
+        @media (min-width: 1032px) {
+            .comment2 {
+                padding: 30px;
             }
         }
     </style>
@@ -247,10 +312,49 @@
             <textarea id="announcement-input" placeholder="Add Post here ......"></textarea>
             <button onclick="addAnnouncement()">Post</button>
         </div>
+
         <div id="posts" class="posts">
             <!-- Posts will be dynamically added here -->
         </div>
+        
+        <div class="comment2">
+            <div class="profile-container">
+                <img src="img1.jfif" alt="Profile Picture">
+                <h4>Ph.D Mohamed Rafat</h4>
+            </div>
+            <p>Assignments Assignments Assignments Assignments Assignments</p>
+            <div class="file-download">
+                <img src="image_f.png" alt="File Icon">
+                <a href="assignments.pdf" download target="_blank">assignments.pdf</a>
+            </div>
+        </div>
+        
+        <div class="comment2">
+            <div class="profile-container">
+                <img src="img3.jfif" alt="Profile Picture">
+                <h4>Ph.D Hassan Mustafa</h4>
+            </div>
+            <p>Assignments Assignments Assignments Assignments Assignments</p>
+            <div class="file-download">
+                <img src="image_f.png" alt="File Icon">
+                <a href="assignments.pdf" download target="_blank">assignments.pdf</a>
+            </div>
+        </div>
+
+        <div class="comment2">
+            <div class="profile-container">
+                <img src="img2.jpg" alt="Profile Picture">
+                <h4>Ph.D Rania Mahmoud</h4>
+            </div>
+            <p>Assignments Assignments Assignments Assignments Assignments</p>
+            <div class="file-download">
+                <img src="image_f.png" alt="File Icon">
+                <a href="assignments.pdf" download target="_blank">assignments.pdf</a>
+            </div>
+        </div>
+        
     </div>
+
 </div>
 
 <script>
@@ -264,12 +368,14 @@ function addAnnouncement() {
         postElement.classList.add('post');
 
         postElement.innerHTML = `
+            <div class="post-controls">
+                <button class="edit" onclick="editPost(this)">Edit</button>
+                <button class="delete" onclick="deletePost(this)">Delete</button>
+            </div>
             <p>${announcementText}</p>
-            <button class="edit" onclick="editPost(this)">Edit</button>
-            <button class="delete" onclick="deletePost(this)">Delete</button>
             <div class="comment">
                 <input type="text" placeholder="Add Comment here .......">
-                <button onclick="addComment(this)">تعليق</button>
+                <button onclick="addComment(this)">Send</button>
             </div>
             <div class="comments"></div>
         `;
@@ -280,7 +386,7 @@ function addAnnouncement() {
 }
 
 function editPost(button) {
-    const postElement = button.parentElement;
+    const postElement = button.parentElement.parentElement;
     const postTextElement = postElement.querySelector('p');
     const newText = prompt('Edit Post :', postTextElement.textContent);
 
@@ -290,7 +396,7 @@ function editPost(button) {
 }
 
 function deletePost(button) {
-    const postElement = button.parentElement;
+    const postElement = button.parentElement.parentElement;
     postElement.remove();
 }
 
@@ -305,8 +411,8 @@ function addComment(button) {
 
         commentElement.innerHTML = `
             <p>${commentText}</p>
-            <button class="edit" onclick="editComment(this)">تعديل</button>
-            <button class="delete" onclick="deleteComment(this)">حذف</button>
+            <button class="edit" onclick="editComment(this)">Edit</button>
+            <button class="delete" onclick="deleteComment(this)">Delete</button>
         `;
 
         commentsContainer.appendChild(commentElement);
