@@ -5,28 +5,74 @@
    <title>Contact Staff</title>
    <link rel="stylesheet" href="style.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+ <link rel="stylesheet" href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <nav>
-        <input type="checkbox" id="click">
-        <label for="click" class="menu-btn">
-           <i class="fas fa-bars"></i>
-        </label>
-        <ul>
-           <li><a href="#">Course</a></li>
-           <li><a href="#">Assignments</a></li>
-           <li><a href="#">Quizzes</a></li>
-           <li><a href="#">Grades</a></li>
-           <li><a href="#" class="active">Contact Staff</a></li>
-           <li><a href="#">Logout</a></li>
+
+
+<div class="sidebar">
+        <div class="logo-details">
+            <img src="course_img.png" class="icon">
+            <div class="logo_name">Course</div>
+          <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav-list">
+
+          <li>
+            <a href="#">
+              <i class='bx bx-grid-alt'></i>
+              <span class="links_name">Dashboard</span>
+            </a>
+            <span class="tooltip">Dashboard</span>
+          </li>
+          <li>
+            <a href="#">
+                <i class='bx bx-task'></i>
+                <span class="links_name">Assignments</span>
+            </a>
+            <span class="tooltip">Assignments</span>
+          </li>
+          <li>
+            <a href="#">
+                <i class='bx bx-file'></i>
+                <span class="links_name">Quizzes</span>
+            </a>
+            <span class="tooltip">Quizzes</span>
+          </li>
+          <li>
+            <a href="#">
+                <i class='bx bx-line-chart'></i>
+                <span class="links_name">Grades</span>
+            </a>
+            <span class="tooltip">Grades</span>
+          </li>        
+          <li>
+            <a href="#">
+              <i class='bx bx-mail-send'></i>
+              <span class="links_name">Contact Staff</span>
+            </a>
+            <span class="tooltip">Contact Staff</span>
+          </li>
+          <li class="profile">
+            <div class="profile-details">
+              <img src="person1.JPG" alt="profileImg">
+              <div class="name_email">
+                <div class="name">Mariam Magdy</div>
+                <div class="email">mariammagdy@gmail.com</div>
+              </div>
+            </div>
+            <i class='bx bx-log-out' id="log_out"></i>
+          </li>
         </ul>
-     </nav>
+      </div>
+
+
    <section class="staff">
       <div class="column">
          <img class="im" src="img1.jfif" alt="Ph.D Mohamed Rafat">
-         <div class="icon">
-            <img class="img" src="email1.png" alt="Email Icon">
+         <div class="icon2">
+            <a href="mailto:mohamed@gmail.com"><img class="img" src="email1.png" alt="Email Icon"></a>
          </div>
          <h3>Ph.D Mohamed Rafat</h3>
          <p>Developer and Lead Instructor</p>
@@ -34,8 +80,8 @@
       </div>
       <div class="column">
          <img class="im" src="img2.jpg" alt="Ph.D Rania Mahmoud">
-         <div class="icon">
-            <img class="img" src="email1.png" alt="Email Icon">
+         <div class="icon2">
+            <a href="mailto:rania@gmail.com"><img class="img" src="email1.png" alt="Email Icon"></a>
          </div>
          <h3>Ph.D Rania Mahmoud</h3>
          <p>Developer and Lead Instructor</p>
@@ -43,8 +89,8 @@
       </div>
       <div class="column">
          <img class="im" src="img3.jfif" alt="Ph.D Hassan Mustafa">
-         <div class="icon">
-            <img class="img" src="email1.png" alt="Email Icon">
+         <div class="icon2">
+            <a href="mailto:hassan@gmail.com"><img class="img" src="email1.png" alt="Email Icon"></a>
          </div>
          <h3>Ph.D Hassan Mustafa</h3>
          <p>Developer and Lead Instructor</p>
@@ -53,7 +99,7 @@
 
       <div class="column">
          <img class="im" src="img1.jfif" alt="Ph.D Mohamed Rafat">
-         <div class="icon">
+         <div class="icon2">
             <img class="img" src="email1.png" alt="Email Icon">
          </div>
          <h3>Ph.D Mohamed Rafat</h3>
@@ -62,7 +108,7 @@
       </div>
       <div class="column">
          <img class="im" src="img2.jpg" alt="Ph.D Rania Mahmoud">
-         <div class="icon">
+         <div class="icon2">
             <img class="img" src="email1.png" alt="Email Icon">
          </div>
          <h3>Ph.D Rania Mahmoud</h3>
@@ -71,7 +117,7 @@
       </div>
       <div class="column">
          <img class="im" src="img3.jfif" alt="Ph.D Hassan Mustafa">
-         <div class="icon">
+         <div class="icon2">
             <img class="img" src="email1.png" alt="Email Icon">
          </div>
          <h3>Ph.D Hassan Mustafa</h3>
@@ -81,5 +127,22 @@
 
 
    </section>
+
+
+<script>
+let sidebar = document.querySelector(".sidebar");
+let closeBtn = document.querySelector("#btn");
+closeBtn.addEventListener("click", () => {
+  sidebar.classList.toggle("open");
+  menuBtnChange();
+});
+function menuBtnChange() {
+  if (sidebar.classList.contains("open")) {
+    closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+  } else {
+    closeBtn.classList.replace("bx-menu-alt-right", "bx-menu"); 
+  }
+}
+</script>
 </body>
 </html>
