@@ -356,6 +356,15 @@ input[type="checkbox"] {
                 <img src="image_f.png" alt="File Icon">
                 <a href="assignments.pdf" download target="_blank">assignments.pdf</a>
             </div>
+            <div class="comment">
+                <input type="text" placeholder="Add Comment here .......">
+                <button onclick="addComment(this)">Send</button>
+            </div>
+            <div class="comments"></div>
+            <div class="comment">
+            <button class="edit" onclick="editComment(this)">Edit</button>
+            <button class="delete" onclick="deleteComment(this)">Delete</button>
+            </div>
         </div>
         
     </div>
@@ -383,6 +392,7 @@ function addAnnouncement() {
                 <button onclick="addComment(this)">Send</button>
             </div>
             <div class="comments"></div>
+            
         `;
 
         postsContainer.appendChild(postElement);
