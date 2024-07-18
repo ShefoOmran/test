@@ -284,6 +284,7 @@
         opacity: 1;
         top: 25px; 
         right: 20px;
+      opacity: 0;
     }
 }
 @media (max-width: 480px) {
