@@ -4,324 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+ <link rel="stylesheet" href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+    <link rel="stylesheet" href="Course.css"/>
     <title>Course</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-        * {
-           margin: 0;
-           padding: 0;
-           box-sizing: border-box;
-        }
-        body {
-           background: #f0f1f6;
-           font-family: 'Poppins', sans-serif;
-        }
-       nav {
-   z-index: 100;
-   position: fixed;
-   height: 80px;
-   width: 100%;
-   background: #102749;
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   padding: 0 50px;
-   flex-wrap: wrap;
-}
-nav ul {
-   list-style: none;
-   display: flex;
-   flex-wrap: wrap;
-}
-nav ul li {
-   margin: 0 20px;
-}
-nav ul li a {
-   color: #f2f2f2;
-   text-decoration: none;
-   font-size: 18px;
-   font-weight: 500;
-   padding: 10px 20px;
-   border-radius: 5px;
-   letter-spacing: 1px;
-   transition: all 0.3s ease;
-   cursor: pointer;
-}
-nav ul li a.active,
-nav ul li a:hover {
-   color: #111;
-   background: #fff;
-}
-nav .menu-btn i {
-   color: #fff;
-   font-size: 22px;
-   cursor: pointer;
-   display: none;
-}
-input[type="checkbox"] {
-   display: none;
-}
-        h2{color:  #102749;}
-
-
-
-        @media (max-width: 1200px) {
-            nav .menu-btn i {
-      display: block;
-   }
-   #click:checked ~ .menu-btn i:before {
-      content: "\f00d";
-   }
-   nav ul {
-      position: fixed;
-      top: 80px;
-      left: -100%;
-      background: #102749;
-      height: 100vh;
-      width: 100%;
-      text-align: center;
-      display: block;
-      transition: all 0.3s ease;
-   }
-   #click:checked ~ ul {
-      left: 0;
-   }
-   nav ul li {
-      width: 100%;
-      margin: 40px 0;
-   }
-   nav ul li a {
-      width: 100%;
-      margin-left: -100%;
-      display: block;
-      font-size: 20px;
-      transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-   }
-   #click:checked ~ ul li a {
-      margin-left: 0;
-   }
-   nav ul li a.active,
-   nav ul li a:hover {
-      background: none;
-      color: #7f858f;
-   }
-        }
-
-        .container {
-            display: flex;
-            height: 100%;
-        }
-
-        .main-content {
-            margin-top: 10%;
-            margin-left: 15%;
-            margin-right: 15%;
-            margin-bottom: 5%;
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-            width: 70%;
-        }
-
-        .announcement {
-            background-color: #fff;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            font-size: 18px;
-            font-weight: 500;
-        }
-
-        .announcement textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            resize: none;
-            font-size: 18px;
-            font-weight: 500;
-        }
-
-        button {
-            background-color: rgb(42, 165, 232);
-            color: #fff;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 500;
-            padding: 8px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            border: none;
-            margin: 10px 0px;
-        }
-
-        .posts .post {
-            background-color: #fff;
-            padding: 15px;
-            margin: 30px 0px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: relative;
-        }
-
-        p {
-            margin: 5px 0;
-            margin-right: 20px;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 500;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-
-        .post-controls {
-            position: absolute;
-            top: 5px;
-            right: 10px;
-            display: flex;
-            gap: 5px;
-        }
-
-        .comment {
-            background-color: #fff;
-            padding: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            margin-bottom:10px;
-        }
-        
-        .comment3 {
-            padding: 10px;  
-        }
-
-        .comment3 .comment
-        {
-            margin-bottom:10px;
-        }
-        
-        .comment2 {
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            margin-bottom: 25px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 200px;
-        }
-        .comment2 p {
-            flex-grow: 1;
-        }
-        .profile-container {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            margin-bottom: 15px;
-        }
-
-        .profile-container img {
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            margin-right: 10px;
-        }
-
-        .file-download {
-            display: flex;
-            align-items: center;
-            margin-top: 15px;
-        }
-
-        .file-download img {
-            width: 30px;
-            height: 30px;
-            margin-right: 10px;
-        }
-
-        .comment input , .comment3 input{
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 18px;
-            font-weight: 500;
-        }
-
-        .edit {
-            background-color: #32CD32;
-        }
-
-        .delete {
-            background-color: #dc3545;
-        }
-
-        comments , comments comment{
-            margin-bottom: 10px;
-        }
-
-        @media (max-width: 850px) {
-            .main-content {
-                margin-top: 100px;
-                margin-left: 5%;
-                margin-right: 5%;
-                width: 90%;
-            }
-
-            .posts .post {
-                padding: 10px;
-                margin-bottom: 8px;
-            }
-            .comment2 {
-                padding: 15px;
-                min-height: 280px;
-            }
-            .file-download {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .file-download img {
-                margin-bottom: 5px;
-            }
-            p{
-            margin-right: 0px;
-            }
-        }
-
-        @media (min-width: 850px) and (max-width: 1020px) {
-            .comment2 {
-                padding: 25px;
-                min-height: 250px;
-            }
-            p{margin-right: 0px;}
-        }
-
-        @media (min-width: 1020px) {
-            .comment2 {
-                padding: 30px;
-            }
-        }
-    </style>
 </head>
 <body>
 
-<header>
-    <nav>
-        <input type="checkbox" id="click">
-        <label for="click" class="menu-btn">
-           <i class="fas fa-bars"></i>
-        </label>
-        <ul>
-           <li><a href="#" class="active">Course</a></li>
-           <li><a href="#">Assignments</a></li>
-           <li><a href="#">Quizzes</a></li>
-           <li><a href="#">Grades</a></li>
-           <li><a href="#">Contact Staff</a></li>
-           <li><a href="#">Logout</a></li>
-        </ul>
-     </nav>
-</header>
 
+        <div class="sidebar">
+        <div class="logo-details">
+            <img src="course_img.png" class="icon">
+            <div class="logo_name">Course</div>
+          <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav-list">
+
+          <li>
+            <a href="#">
+              <i class='bx bx-grid-alt'></i>
+              <span class="links_name">Dashboard</span>
+            </a>
+            <span class="tooltip">Dashboard</span>
+          </li>
+          <li>
+            <a href="#">
+                <i class='bx bx-book-bookmark'></i>
+                <span class="links_name">Courses</span>
+            </a>
+            <span class="tooltip">Courses</span>
+          </li>
+          <li>
+            <a href="#">
+                <i class='bx bx-task'></i>
+                <span class="links_name">Assignments</span>
+            </a>
+            <span class="tooltip">Assignments</span>
+          </li>
+          <li>
+            <a href="#">
+                <i class='bx bx-file'></i>
+                <span class="links_name">Quizzes</span>
+            </a>
+            <span class="tooltip">Quizzes</span>
+          </li>
+          <li>
+            <a href="#">
+                <i class='bx bx-line-chart'></i>
+                <span class="links_name">Grades</span>
+            </a>
+            <span class="tooltip">Grades</span>
+          </li>        
+          <li>
+            <a href="#">
+              <i class='bx bx-mail-send'></i>
+              <span class="links_name">Contact Staff</span>
+            </a>
+            <span class="tooltip">Contact Staff</span>
+          </li>
+          <li class="profile">
+            <div class="profile-details">
+              <img src="person1.JPG" alt="profileImg">
+              <div class="name_email">
+                <div class="name">Mariam Magdy</div>
+                <div class="email">mariammagdy@gmail.com</div>
+              </div>
+            </div>
+            <i class='bx bx-log-out' id="log_out"></i>
+          </li>
+        </ul>
+      </div>
 <div class="container">
 
     <div class="main-content">
@@ -332,7 +83,6 @@ input[type="checkbox"] {
         </div>
 
         <div id="posts" class="posts">
-            <!-- Posts will be dynamically added here -->
         </div>
         
         <div class="comment2">
@@ -389,85 +139,6 @@ input[type="checkbox"] {
     </div>
 
 </div>
-
-<script>
-function addAnnouncement() {
-    const announcementInput = document.getElementById('announcement-input');
-    const announcementText = announcementInput.value.trim();
-
-    if (announcementText) {
-        const postsContainer = document.getElementById('posts');
-        const postElement = document.createElement('div');
-        postElement.classList.add('post');
-
-        postElement.innerHTML = `
-            <div class="post-controls">
-                <button class="edit" onclick="editPost(this)">Edit</button>
-                <button class="delete" onclick="deletePost(this)">Delete</button>
-            </div>
-            <p>${announcementText}</p>
-            <div class="comment">
-                <input type="text" placeholder="Add Comment here .......">
-                <button onclick="addComment(this)">Send</button>
-            </div>
-            <div class="comments"></div>
-            
-        `;
-
-        postsContainer.appendChild(postElement);
-        announcementInput.value = '';
-    }
-}
-
-function editPost(button) {
-    const postElement = button.parentElement.parentElement;
-    const postTextElement = postElement.querySelector('p');
-    const newText = prompt('Edit Post :', postTextElement.textContent);
-
-    if (newText !== null) {
-        postTextElement.textContent = newText.trim();
-    }
-}
-
-function deletePost(button) {
-    const postElement = button.parentElement.parentElement;
-    postElement.remove();
-}
-
-function addComment(button) {
-    const commentInput = button.previousElementSibling;
-    const commentText = commentInput.value.trim();
-
-    if (commentText) {
-        const commentsContainer = button.parentElement.nextElementSibling;
-        const commentElement = document.createElement('div');
-        commentElement.classList.add('comment');
-
-        commentElement.innerHTML = `
-            <p>${commentText}</p>
-            <button class="edit" onclick="editComment(this)">Edit</button>
-            <button class="delete" onclick="deleteComment(this)">Delete</button>
-        `;
-
-        commentsContainer.appendChild(commentElement);
-        commentInput.value = '';
-    }
-}
-
-function editComment(button) {
-    const commentElement = button.parentElement;
-    const commentTextElement = commentElement.querySelector('p');
-    const newText = prompt('Edit Comment:', commentTextElement.textContent);
-
-    if (newText !== null) {
-        commentTextElement.textContent = newText.trim();
-    }
-}
-
-function deleteComment(button) {
-    const commentElement = button.parentElement;
-    commentElement.remove();
-}
-</script>
+<script src="Course.js"></script>
 </body>
 </html>
